@@ -30,6 +30,11 @@ function App() {
             <Header />
             <main>
                 <p>Under Construction...</p>
+                {/* <ul>{itemList.map((item) => {
+                    return (
+                        <li>{item.item}: {item.quantity} {item.unti}</li>
+                    )
+                })}</ul> */}
             </main>
         </div>
     );
