@@ -12,12 +12,13 @@ listRouter.get('/', (req, res) => {
     ORDER BY "item" ASC
     `;
     pool.query(sqlQuery)
-}).then((dbRes) => {
-    res.send(dbRes.rows);
-}).catch((dbErr)=> {
-    console.log('GET route not working', dbErr);
-    res.sendStatus(500);
+    .then((dbRes) => {
+        res.send(dbRes.rows);
+    })
+    .catch((dbErr)=> {
+        console.log('GET route not working', dbErr);
+        res.sendStatus(500);
+    })
 })
-
 
 module.exports = listRouter;
