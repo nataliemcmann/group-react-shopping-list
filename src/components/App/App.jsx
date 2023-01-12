@@ -40,6 +40,21 @@ function App() {
         console.log(err);
       })
   };
+
+    //put request
+    const putList = () => {
+        console.log(item.id);
+        //try to insert id into url?
+        axios.put('/list/', {purchased : true})
+        .then(response => {
+            getList();
+        })
+        .catch(err => {
+            alert('Error in PUT route');
+            console.log(err);
+        })
+    }
+
     return (
         <div className="App">
             <Header />
@@ -47,7 +62,9 @@ function App() {
                 <p>Under Construction...</p>
                 <ul>{itemList.map((item) => {
                     return (
-                        <li>{item.item}: {item.quantity} {item.unti}</li>
+                        <li key={item.id}>
+                            {item.item}: {item.quantity} {item.unit}
+                        </li>
                     )
                 })}</ul>
             </main>
