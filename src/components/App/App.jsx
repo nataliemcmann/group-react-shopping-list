@@ -16,3 +16,25 @@ function App() {
 }
 
 export default App;
+
+
+const postList = () => {
+    axios.post('/list', { item : newItem, quantity: newQuantity, unit : newUnit, purchased, purchasedStatus  })
+      .then(response => {
+        // clear inputs
+        setNewItem('');
+        setQuantity(0)
+        setNewUnit('')
+        setPurchasedStatus(false);
+        getList();
+      })
+      .catch(err => {
+        alert('Error Adding Item');
+        console.log(err);
+      })
+  };
+
+
+
+
+
