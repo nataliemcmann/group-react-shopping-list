@@ -10,14 +10,11 @@ function App() {
     const [itemList, setItemList] = useState([]);
 
     useEffect(() => {
-        setItemList()
+        getList();
     }, []);
 
     const getList = () => {
-        axios({
-            method: 'GET',
-            url: '/list'
-        }).then((response) => {
+        axios.get('/list').then((response) => {
             console.log('This is the response from GET /list: ', response.data);
             setItemList(response.data);
         }).catch((error) => {
@@ -48,11 +45,11 @@ function App() {
             <Header />
             <main>
                 <p>Under Construction...</p>
-                {/* <ul>{itemList.map((item) => {
+                <ul>{itemList.map((item) => {
                     return (
                         <li>{item.item}: {item.quantity} {item.unti}</li>
                     )
-                })}</ul> */}
+                })}</ul>
             </main>
         </div>
     );
