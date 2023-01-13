@@ -4,6 +4,7 @@ import axios from 'axios';
 
 import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
+import Grid from '@mui/material/Unstable_Grid2';
 
 import Header from '../Header/Header.jsx'
 import './App.css';
@@ -35,15 +36,20 @@ function App() {
             <ItemForm />
                 <p>Under Construction...</p>
                 <div>
+                    <Grid container spacing={2}>
                     {itemList.map((item) => {
                         return (
-                            <Card sx={{maxWidth: 200 }} key={item.id}>
-                                <CardContent>
-                                    {item.item}: {item.quantity} {item.unit}
-                                </CardContent>
-                            </Card>
+                            <Grid xs={3} key={item.id}>
+                                <Card>
+                                    <CardContent>
+                                        <p>{item.item}</p> 
+                                        <p>{item.quantity} {item.unit}</p>
+                                        {/* Buttons here */}
+                                    </CardContent>
+                                </Card>
+                            </Grid>
                                 )})}
-
+                    </Grid>
 
                 </div>
 
