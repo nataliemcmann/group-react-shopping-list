@@ -37,19 +37,35 @@ return(
         <Grid xs={3} key={item.id}>
         {item.purchased
         ?
-        <ThemeProvider theme={purchasedTheme}>
-            <Tooltip title="Purchased!">
-            <Card>
-                <CardContent>
-                    <p>{item.item}</p> 
+          <Tooltip title="Purchased!">
+            <Card
+             sx={{ 
+            backgroundColor: "#A2588B", 
+            borderRadius: 1.5  
+            }}
+            >
+           
+                <CardContent
+                sx={{ 
+                color: "#fff"
+                }} 
+                >
+
+            
+
+                   <p>{item.item}</p> 
                     <p>{item.quantity} {item.unit}</p>
 
                 </CardContent>
             </Card>
             </Tooltip>
-        </ThemeProvider>
         :
-        <Card>
+        <Card
+         sx={{ 
+        backgroundColor: "#F8F279", 
+        borderRadius: 1.5  
+        }}
+        >
             <CardContent>
                 <p>{item.item}</p> 
                 <p>{item.quantity} {item.unit}</p>
