@@ -5,6 +5,7 @@ import Header from '../Header/Header.jsx'
 import './App.css';
 import ItemForm from '../ItemForm/ItemForm.js';
 import ListItems from '../ListItems/ListItems.js';
+import ListControl from '../ListControl/ListControl.js';
 
 function App() {
     const [itemList, setItemList] = useState([]);
@@ -27,7 +28,7 @@ function App() {
             <Header />
             <main>
             <ItemForm getList={getList}/>
-                <p>Under Construction...</p>
+                <ListControl getList={getList}/>
             <ListItems 
             itemList={itemList}
             getList={getList}
