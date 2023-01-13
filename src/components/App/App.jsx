@@ -1,6 +1,7 @@
 import React from 'react';
 import { useState, useEffect } from 'react';
 import axios from 'axios';
+import PutButton from './PutButton.jsx'
 
 import Header from '../Header/Header.jsx'
 import './App.css';
@@ -41,19 +42,7 @@ function App() {
       })
   };
 
-    //put request
-    const putList = () => {
-        console.log(item.id);
-        //try to insert id into url?
-        axios.put('/list/', {purchased : true})
-        .then(response => {
-            getList();
-        })
-        .catch(err => {
-            alert('Error in PUT route');
-            console.log(err);
-        })
-    }
+  
 
     return (
         <div className="App">
@@ -64,6 +53,7 @@ function App() {
                     return (
                         <li key={item.id}>
                             {item.item}: {item.quantity} {item.unit}
+                            <PutButton item={item}/>
                         </li>
                     )
                 })}</ul>
