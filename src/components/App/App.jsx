@@ -1,11 +1,12 @@
 import React from 'react';
 import { useState, useEffect } from 'react';
 import axios from 'axios';
-import PutButton from './PutButton.jsx'
+import PutButton from '../ListItems/PutButton.jsx'
 
 import Header from '../Header/Header.jsx'
 import './App.css';
 import ItemForm from '../ItemForm/ItemForm.js';
+import DeleteButton from '../ListItems/DeleteButton.jsx';
 
 
 function App() {
@@ -55,6 +56,7 @@ function App() {
                         <li key={item.id}>
                             {item.item}: {item.quantity} {item.unit}
                             <PutButton item={item} getList={getList}/>
+                            <DeleteButton item={item} getList={getList}/>
                         </li>
                     )
                 })}</ul>

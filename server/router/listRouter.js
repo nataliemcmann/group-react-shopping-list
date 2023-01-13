@@ -64,9 +64,9 @@ listRouter.put('/:id', (req,res) => {
 
 
 
-listRouter.delete('/', (req, res) => {
+listRouter.delete('/:id', (req, res) => {
   console.log(req.data);
-  let idToDelete = req.data.id;
+  let idToDelete = req.params.id;
 
   let sqlQuery = `
     DELETE FROM "list"
