@@ -24,6 +24,26 @@ function App() {
         })
     }
 
+    const resetList = () => {
+        axios.delete('/list')
+        .then(response  =>  {
+            console.log(response)
+        })
+        .catch(errorr => {
+            console.log(errorr)
+        })
+        console.log('CLicked')
+      }
+      const removeItem =  async (id) => {
+        try {
+            const response = await axios.delete(`/list/:${id}`)
+            console.log('Reponse from Remove Item', response)
+            setItemList(response.data)
+        } catch (error) {
+            console.error('DELETE response error', err)
+        }
+      };
+
     return (
         <div className="App">
             <Header />
