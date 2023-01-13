@@ -5,6 +5,7 @@ import PutButton from './PutButton.jsx'
 
 import Header from '../Header/Header.jsx'
 import './App.css';
+import ItemForm from '../ItemForm/ItemForm.js';
 
 
 function App() {
@@ -48,6 +49,7 @@ function App() {
         <div className="App">
             <Header />
             <main>
+            <ItemForm />
                 <p>Under Construction...</p>
                 <ul>{itemList.map((item) => {
                     return (
