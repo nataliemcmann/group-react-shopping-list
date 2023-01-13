@@ -23,7 +23,7 @@ allRouter.put('/', (req,res) => {
 
 // delete all //
 // delete 
-listRouter.delete('/:id', (req,res) => {
+allRouter.delete('/', (req,res) => {
     console.log(' in Delete All route');
     let sqlQuery = `
     TRUNCATE list;
