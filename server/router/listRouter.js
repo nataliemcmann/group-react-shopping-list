@@ -62,4 +62,25 @@ listRouter.put('/:id', (req,res) => {
     })
 })
 
+
+
+listRouter.delete('/', (req, res) => {
+  console.log(req.data);
+  let idToDelete = req.data.id;
+
+  let sqlQuery = `
+    DELETE FROM "list"
+      WHERE "id"=$1;        
+  `
+  let sqlValues = [idToDelete];
+  pool.query(sqlQuery, sqlValues)
+    .then((dbRes) => {
+      res.sendStatus(200);
+    })
+    .catch((dbErr) => {
+      console.log( dbErr);
+      res.sendStatus(500);
+    })
+})
+
 module.exports = listRouter;
