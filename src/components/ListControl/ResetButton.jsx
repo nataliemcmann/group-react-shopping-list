@@ -2,14 +2,14 @@ import { useState } from 'react';
 import axios from 'axios';
 
 function ResetButton ({getList}) {
-    const handlePut = (event) => {
+    const handlePutAll = (event) => {
         event.preventDefault();
         putAllList();
     }
 
     //put all request
     const putAllList = () => {
-        axios.put('/list/all')
+        axios.put('/all')
         .then(response => {
             getList();
         })
@@ -25,3 +25,5 @@ function ResetButton ({getList}) {
         </>
     )
 }
+
+export default ResetButton;
