@@ -5,6 +5,8 @@ import Grid from '@mui/material/Unstable_Grid2';
 import PutButton from "./PutButton";
 import DeleteButton from "./DeleteButton";
 
+import Tooltip from '@mui/material/Tooltip';
+
 import { ThemeProvider, createTheme } from '@mui/material/styles';
 import {grey} from '@mui/material/colors';
 
@@ -35,27 +37,28 @@ return(
         <Grid xs={3} key={item.id}>
         {item.purchased
         ?
-        <ThemeProvider theme={purchasedTheme}>
+          <Tooltip title="Purchased!">
             <Card
              sx={{ 
             backgroundColor: "#A2588B", 
             borderRadius: 1.5  
             }}
             >
+           
                 <CardContent
                 sx={{ 
                 color: "#fff"
                 }} 
                 >
-                    <p>{item.item}</p> 
+
+            
+
+                   <p>{item.item}</p> 
                     <p>{item.quantity} {item.unit}</p>
-                    <p>
-                    <PutButton item={item} getList={getList}/>
-                    <DeleteButton item={item} getList={getList}/>
-                    </p>
+
                 </CardContent>
             </Card>
-        </ThemeProvider>
+            </Tooltip>
         :
         <Card
          sx={{ 
