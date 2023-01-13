@@ -47,7 +47,7 @@ function App() {
                 <p>Under Construction...</p>
                 <ul>{itemList.map((item) => {
                     return (
-                        <li>{item.item}: {item.quantity} {item.unti}</li>
+                        <li key={item.id}>{item.item}: {item.quantity} {item.unti}</li>
                     )
                 })}</ul>
             </main>
