@@ -21,7 +21,25 @@ function App() {
             console.log('Error in GET /list: ', error);
         })
     }
-
+    const resetList = () => {
+        axios.delete('/list')
+        .then(response  =>  {
+            console.log(response)
+        })
+        .catch(errorr => {
+            console.log(errorr)
+        })
+        console.log('CLicked')
+      }
+      const removeItem =  async (id) => {
+        try {
+            const response = await axios.delete(`/list/:${id}`)
+            console.log('Reponse from Remove Item', response)
+            setItemList(response.data)
+        } catch (error) {
+            console.error('DELETE response error', err)
+        }
+      };
 
         const postList = () => {
     axios.post('/list', { item : newItem, quantity: newQuantity, unit : newUnit, purchased : 0 })//<list item coresponding names with sql database// //^axios post with all items to be sent to server side for data base package//
