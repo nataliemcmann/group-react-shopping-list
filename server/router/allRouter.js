@@ -21,4 +21,21 @@ allRouter.put('/', (req,res) => {
     })
 })
 
+// delete all //
+// delete 
+listRouter.delete('/:id', (req,res) => {
+    console.log(' in Delete All route');
+    let sqlQuery = `
+    TRUNCATE list;
+    DELETE FROM list`;
+    pool.query(sqlQuery)
+    .then((response) => {
+        console.log('Success in Delete ALL');
+        res.sendStatus(200);
+    })
+    .catch((error) => {
+        console.log('Error in Delete ALL: ', error)
+        res.sendStatus(500);
+    })
+})
 module.exports = allRouter;
