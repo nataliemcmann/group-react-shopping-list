@@ -43,14 +43,14 @@ listRouter.post('/', (req,res) => {
 
 listRouter.put('/:id', (req,res) => {
     console.log('In PUT route');
-    console.log('req.params: ', req.params);
-    console.log('req.body: ', req.body);
+    console.log('req.params: ', req.params.id);
+    // console.log('req.body: ', req.body);
     
     let sqlQuery = 
         `UPDATE "list"
-            SET "purchased"='TRUE'
+            SET "purchased"=TRUE
             WHERE "id"=$1;`;
-    let sqlValues = [req.body.purchased, req.params.id];
+    let sqlValues = [req.params.id];
     pool.query(sqlQuery, sqlValues)
     .then((response) => {
         console.log('Success in PUT');

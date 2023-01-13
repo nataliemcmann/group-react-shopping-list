@@ -2,17 +2,17 @@ import { useState } from 'react';
 import axios from 'axios';
 
 
-function PutButton ({item}) {
+function PutButton ({ item , getList}) {
 const handlePut = (event) => {
     event.preventDefault();
-    putList({item});
+    putList({item, getList});
 }
 
 //put request
-const putList = () => {
+const putList = ({item, getList}) => {
     console.log(item.id);
     //try to insert id into url?
-    axios.put('/list', {params: item.id})
+    axios.put(`/list/${item.id}`)
     .then(response => {
         getList();
     })
