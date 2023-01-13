@@ -2,6 +2,9 @@ import React from 'react';
 import { useState, useEffect } from 'react';
 import axios from 'axios';
 
+import Card from '@mui/material/Card';
+import CardContent from '@mui/material/CardContent';
+
 import Header from '../Header/Header.jsx'
 import './App.css';
 import ItemForm from '../ItemForm/ItemForm.js';
@@ -31,11 +34,19 @@ function App() {
             <main>
             <ItemForm />
                 <p>Under Construction...</p>
-                <ul>{itemList.map((item) => {
-                    return (
-                        <li key={item.id}>{item.item}: {item.quantity} {item.unti}</li>
-                    )
-                })}</ul>
+                <div>
+                    {itemList.map((item) => {
+                        return (
+                            <Card sx={{maxWidth: 200 }} key={item.id}>
+                                <CardContent>
+                                    {item.item}: {item.quantity} {item.unit}
+                                </CardContent>
+                            </Card>
+                                )})}
+
+
+                </div>
+
             </main>
         </div>
     );
