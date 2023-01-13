@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import axios from 'axios';
+import { Box, Button, Stack } from '@mui/material';
 
 function ResetButton ({getList}) {
     const handlePutAll = (event) => {
@@ -21,8 +22,32 @@ function ResetButton ({getList}) {
 
     return (
         <>
-            <button onClick={handlePutAll}>Reset</button>
-        </>
+  <Stack
+    p = {1}
+    direction="row"
+    justifyContent = "left" 
+    sx={{ height: "90%" }} 
+    spacing={3} 
+    >
+    <Box 
+    sx={{ 
+        width: "max-content",
+        backgroundColor: "#A2588B", 
+        borderRadius: 1.5  
+        }}
+        >
+    <Button 
+    onClick={handlePutAll}
+     sx={{ 
+        width: "max-content", 
+        color: "#fff"
+        }}
+    >
+        Reset
+    </Button>
+    </Box>
+    </Stack>
+    </>
     )
 }
 

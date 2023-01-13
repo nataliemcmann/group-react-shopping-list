@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import axios from 'axios';
+import { Box, Button, Stack } from '@mui/material';
 
 function DeleteAllButton ({getList}) {
     const handleDeleteAll = (event) => {
@@ -20,9 +21,34 @@ function DeleteAllButton ({getList}) {
     }
 
     return (
-        <>
-            <button onClick={handleDeleteAll}>Clear</button>
-        </>
+         <>
+    <Stack
+    p = {1}
+    direction="row"
+    alignItems={"center"}
+    justifyContent = "space-betweem" 
+    sx={{ height: "90%" }} 
+    spacing={3} 
+    >
+    <Box 
+    sx={{ 
+        width: "max-content",
+        backgroundColor: "#872D39", 
+        borderRadius: 1.5  
+        }}
+        >
+    <Button 
+    onClick={handleDeleteAll}
+     sx={{ 
+        width: "max-content", 
+        color: "#fff"
+        }}
+    >
+        Clear
+    </Button>
+    </Box>
+    </Stack>
+    </>
     )
 }
 

@@ -36,8 +36,17 @@ return(
         {item.purchased
         ?
         <ThemeProvider theme={purchasedTheme}>
-            <Card>
-                <CardContent>
+            <Card
+             sx={{ 
+            backgroundColor: "#A2588B", 
+            borderRadius: 1.5  
+            }}
+            >
+                <CardContent
+                sx={{ 
+                color: "#fff"
+                }} 
+                >
                     <p>{item.item}</p> 
                     <p>{item.quantity} {item.unit}</p>
                     <p>
@@ -48,7 +57,12 @@ return(
             </Card>
         </ThemeProvider>
         :
-        <Card>
+        <Card
+         sx={{ 
+        backgroundColor: "#F8F279", 
+        borderRadius: 1.5  
+        }}
+        >
             <CardContent>
                 <p>{item.item}</p> 
                 <p>{item.quantity} {item.unit}</p>
