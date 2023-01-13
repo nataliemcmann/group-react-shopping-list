@@ -27,7 +27,6 @@ function App() {
             <Header />
             <main>
             <ItemForm getList={getList}/>
-                <p>Under Construction...</p>
             <ListItems 
             itemList={itemList}
             getList={getList}
