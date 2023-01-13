@@ -29,4 +29,16 @@ Here's a simple shopping list app to solve all those pesky problems.
 2. The items in your shopping list will display underneath the list controls. Each item will have a "Buy" button and a "Remove" button. 
     - The "Buy" button will mark your item as purchased (describe conditional render)
     - The "Remove" button will delete the item from the list
-3. The list controls allow you to reset your list or clear it completely. Resetting the list changes all item statuses from purchased to not, allowing you keep frequently needed items on the list instead entering them for each shopping trip. Clearing the list removes all items from the list, so you start with a clean slate!
+3. The list controls allow you to reset your list or clear it completely. Resetting the list changes all item statuses from purchased to not, allowing you keep frequently needed items on the list instead entering them for each shopping trip. Clearing the list removes all items from the list, so you start with a clean slate! 
+
+## Technologies 
+-Javascript 
+-CSS
+-HTML
+
+## License 
+
+## Acknowledgement
+Thanks to Prime Digital Academy who equipped and helped me to make this application a reality. (Thank you Henri, Lauren, Natalie and Bishar)
+
+
