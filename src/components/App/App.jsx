@@ -1,7 +1,7 @@
 import React from 'react';
 import { useState, useEffect } from 'react';
 import axios from 'axios';
-import PutButton from '../ListItems/PutButton.jsx'
+import PutButton from '../ListItems/PutButton.jsx';
 
 import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
@@ -11,6 +11,7 @@ import Header from '../Header/Header.jsx'
 import './App.css';
 import ItemForm from '../ItemForm/ItemForm.js';
 import DeleteButton from '../ListItems/DeleteButton.jsx';
+import ResetButton from '../ListControl/ResetButton.jsx';
 
 
 function App() {
@@ -29,40 +30,15 @@ function App() {
         })
     }
 
-    const resetList = () => {
-        axios.delete('/list')
-        .then(response  =>  {
-            console.log(response)
-        })
-        .catch(errorr => {
-            console.log(errorr)
-        })
-        console.log('CLicked')
-      }
-      const removeItem =  async (id) => {
-        try {
-            const response = await axios.delete(`/list/:${id}`)
-            console.log('Reponse from Remove Item', response)
-            setItemList(response.data)
-        } catch (error) {
-            console.error('DELETE response error', err)
-        }
-      };
-
     return (
         <div className="App">
             <Header />
             <main>
             <ItemForm getList={getList}/>
-                <p>Under Construction...</p>
-                <ul>{itemList.map((item) => {
-                    return (
-                        <li key={item.id}>
-                            {item.item}: {item.quantity} {item.unit}
-
-                        </li>
-                    )
-                })}</ul>
+            <div>
+                <h2>List Control</h2>
+                <ResetButton getList={getList}/>
+            </div>
                 <div>
                     <Grid container spacing={2}>
                     {itemList.map((item) => {

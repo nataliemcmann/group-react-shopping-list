@@ -39,7 +39,7 @@ listRouter.post('/', (req,res) => {
     })
 })
 
-// PUT //
+// Targerted PUT //
 
 listRouter.put('/:id', (req,res) => {
     console.log('In PUT route');
@@ -62,6 +62,24 @@ listRouter.put('/:id', (req,res) => {
     })
 })
 
+
+// PUT all //
+listRouter.put('/all', (req,res) => {
+    console.log('in PUT ALL route');
+    let sqlQuery = `
+    UPDATE "list"
+    SET "purchased"=FALSE
+    `;
+    pool.query(sqlQuery)
+    .then((response) => {
+        console.log('Success in PUT ALL');
+        res.sendStatus(200);
+    })
+    .catch((error) => {
+        console.log('Error in PUT ALL: ', error)
+        res.sendStatus(500);
+    })
+})
 
 
 listRouter.delete('/:id', (req, res) => {

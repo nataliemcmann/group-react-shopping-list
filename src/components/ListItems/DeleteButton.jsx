@@ -17,7 +17,7 @@ const deleteList = ({item, getList}) => {
         getList();
     })
     .catch(err => {
-        alert('Error in PUT route');
+        alert('Error in DELETE route');
         console.log(err);
     })
 }
