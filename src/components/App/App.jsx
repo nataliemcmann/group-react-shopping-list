@@ -1,6 +1,7 @@
 import React from 'react';
 import { useState, useEffect } from 'react';
 import axios from 'axios';
+import PutButton from './PutButton.jsx'
 
 import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
@@ -27,13 +28,31 @@ function App() {
         })
     }
 
+    const resetList = () => {
+        axios.delete('/list')
+        .then(response  =>  {
+            console.log(response)
+        })
+        .catch(errorr => {
+            console.log(errorr)
+        })
+        console.log('CLicked')
+      }
+      const removeItem =  async (id) => {
+        try {
+            const response = await axios.delete(`/list/:${id}`)
+            console.log('Reponse from Remove Item', response)
+            setItemList(response.data)
+        } catch (error) {
+            console.error('DELETE response error', err)
+        }
+      };
 
-       
     return (
         <div className="App">
             <Header />
             <main>
-            <ItemForm />
+            <ItemForm getList={getList}/>
                 <p>Under Construction...</p>
                 <div>
                     <Grid container spacing={2}>
@@ -52,7 +71,6 @@ function App() {
                     </Grid>
 
                 </div>
-
             </main>
         </div>
     );
