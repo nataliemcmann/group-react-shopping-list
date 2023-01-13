@@ -39,7 +39,7 @@ listRouter.post('/', (req,res) => {
     })
 })
 
-// PUT //
+// Targeted PUT //
 
 listRouter.put('/:id', (req,res) => {
     console.log('In PUT route');
@@ -61,8 +61,6 @@ listRouter.put('/:id', (req,res) => {
         res.sendStatus(500);
     })
 })
-
-
 
 listRouter.delete('/:id', (req, res) => {
   console.log(req.data);

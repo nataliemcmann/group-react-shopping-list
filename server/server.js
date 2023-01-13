@@ -3,6 +3,7 @@ const app = express();
 const bodyParser = require('body-parser');
 const PORT = process.env.PORT || 5001;
 const listRouter = require('./router/listRouter.js');
+const allRouter = require('./router/allRouter.js');
 
 /** ---------- MIDDLEWARE ---------- **/
 app.use(bodyParser.json()); // needed for axios requests
@@ -12,6 +13,7 @@ app.use(express.static('build'));
 // Create your API routes in a separate file
 // and plug them in here with `app.use()`
 app.use('/list', listRouter);
+app.use('/all', allRouter);
 
 /** ---------- START SERVER ---------- **/
 app.listen(PORT,  () => {

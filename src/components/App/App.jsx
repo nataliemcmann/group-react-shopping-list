@@ -6,7 +6,6 @@ import './App.css';
 import ItemForm from '../ItemForm/ItemForm.js';
 import ListItems from '../ListItems/ListItems.js';
 
-
 function App() {
     const [itemList, setItemList] = useState([]);
 
@@ -22,19 +21,7 @@ function App() {
             console.log('Error in GET /list: ', error);
         })
     }
-
-    const resetList = () => {
-        axios.delete('/list')
-        .then(response  =>  {
-            console.log(response)
-        })
-        .catch(errorr => {
-            console.log(errorr)
-        })
-        console.log('CLicked')
-      }
-
-
+    
     return (
         <div className="App">
             <Header />
